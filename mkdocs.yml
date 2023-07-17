@@ -3,6 +3,7 @@ site_name: Stack-Overflow-python-ticket-extraction-using-NLP
 # defeine TOC or order of website-
 nav:
   - Home: index.md
+  - Data Preparation: data_prepare.md
 
 site_author: Neeraj Bafila
 site_description: >-
