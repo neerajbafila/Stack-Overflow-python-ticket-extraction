@@ -1,0 +1,6 @@
+Prepare:    
+      split: 0.3
+      seed: 42
+      tag: <python>
+      column_names: "pid\tlabel\ttext\n"
+

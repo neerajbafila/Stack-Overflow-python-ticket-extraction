@@ -1,3 +1,14 @@
 Logger: 
       log_file_name: logs
       log_location: Log
+
+Data:
+    source_dir: data
+    data_file: data.xml
+
+Artifact:
+    artifact_dir: artifacts
+    prepared_data_dir: prepared_data
+    train_data: train.tsv
+    test_data: test.tsv
+    

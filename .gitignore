@@ -132,3 +132,4 @@ data/data.xml
 data/*
 Log/
 research_env/
+artifacts/prepared_data/*
