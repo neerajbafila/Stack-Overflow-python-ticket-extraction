@@ -11,4 +11,8 @@ Artifact:
     prepared_data_dir: prepared_data
     train_data: train.tsv
     test_data: test.tsv
+    Featurized_Data_Dir: featurized_data
+    Featurized_Train_Data: featurized_train.tsv
+    Featurized_Test_Data: featurized_test.tsv
+
     

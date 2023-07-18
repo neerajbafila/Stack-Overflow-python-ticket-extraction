@@ -1,8 +1,8 @@
-import logging
 import xml.etree.ElementTree as ET
 import random
 from tqdm import tqdm
 import re
+import pandas as pd
 
 def process_posts(main_data_file, train_data_file, test_data_file, split, column_names, target_tag, logger):
     column_names = column_names
@@ -26,7 +26,13 @@ def process_posts(main_data_file, train_data_file, test_data_file, split, column
             print(f"Skipping the broken line {line_no}: {e}\n")
             logger.write_exception(f"Skipping the broken line {line_no}: {e}\n ")
             
-    
+def get_data_as_df(logger, source_data_path:str, encoding='utf8', sep='\t') -> pd.DataFrame:
+    try:
+        df = pd.read_csv(source_data_path, encoding=encoding, delimiter=sep)
+        logger.write_log(f"Data has been read from {source_data_path} as pandas dataFrame")
+        return df
+    except Exception as e:
+        logger.write_exception(e)
 
 
 

@@ -26,7 +26,7 @@ class logger:
         self.my_logger.setLevel(self.log_level.upper())
 
         # define formatter
-        self.log_formatter = logging.Formatter("[%(asctime)s- %(levelname)s- %(module)s]-\n\t<START> %(message)s\t<END>")
+        self.log_formatter = logging.Formatter("[%(asctime)s- %(levelname)s- %(module)s]-\n<START>\t %(message)s\t<END>\n")
         
         # add formatter in filehandler
         self.handler.setFormatter(self.log_formatter)
@@ -60,7 +60,7 @@ class logger:
         self.my_logger.setLevel(self.log_level.upper())
 
         # define formatter
-        self.log_formatter = logging.Formatter("[%(asctime)s- %(levelname)s- %(module)s]-\n\t<START> %(message)s\t<END>")
+        self.log_formatter = logging.Formatter("[%(asctime)s- %(levelname)s- %(module)s]-\n<START>\t %(message)s\t<END>\n")
         
         # add formatter in filehandler
         self.handler.setFormatter(self.log_formatter)

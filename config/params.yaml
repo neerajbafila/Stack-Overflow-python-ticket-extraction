@@ -3,4 +3,8 @@ Prepare:
       seed: 42
       tag: <python>
       column_names: "pid\tlabel\ttext\n"
+      
+featurization:
+      max_features: 3000
+      ngram_range: 4
 
