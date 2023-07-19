@@ -133,3 +133,6 @@ data/*
 Log/
 research_env/
 artifacts/prepared_data/*
+.vscode/settings.json
+.idea/
+artifacts/featurized_data/*

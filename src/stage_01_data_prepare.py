@@ -56,11 +56,11 @@ if __name__=='__main__':
     parser.add_argument("--params", "--p", default="config/params.yaml")
     parsed_args = parser.parse_args()
     my_logger = logger(parsed_args.config)
-    my_logger.write_log(f"{('*')*30}{STAGE} started{('*')*30}")
+    my_logger.write_log(f"{('*')*30}{STAGE} STAGE started{('*')*30}")
     try:
 
         data_prepare_ob = Data_prepare(parsed_args.config, parsed_args.params)
         data_prepare_ob.prepare_data()
-        my_logger.write_log(f"{('*')*30}{STAGE} completed{('*')*30}")
+        my_logger.write_log(f"{('*')*30}{STAGE} STAGE completed{('*')*30}")
     except Exception as e:
         my_logger.write_exception(e)

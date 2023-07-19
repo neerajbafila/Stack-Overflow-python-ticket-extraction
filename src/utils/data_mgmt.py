@@ -3,6 +3,9 @@ import random
 from tqdm import tqdm
 import re
 import pandas as pd
+import joblib
+from scipy import sparse
+import numpy as np
 
 def process_posts(main_data_file, train_data_file, test_data_file, split, column_names, target_tag, logger):
     column_names = column_names
@@ -33,6 +36,19 @@ def get_data_as_df(logger, source_data_path:str, encoding='utf8', sep='\t') -> p
         return df
     except Exception as e:
         logger.write_exception(e)
+
+def save_matrix(dataframe, matrix, output_path, logger):
+    try:
+        logger.write_log(f"Getting pid_matrix and label matrix from pandas Dataframe{dataframe.head()}")
+        pid_matrix = sparse.csr_matrix(dataframe.pid.astype(np.int64)).T
+        label_matrix = sparse.csr_matrix(dataframe.label.astype(np.int64)).T
+        result = sparse.hstack([pid_matrix, label_matrix, matrix])
+        msg = f"The output matrix saved at {output_path} of shape: {result.shape}"
+        joblib.dump(result, output_path)
+        logger.write_log(msg)
+    except Exception as e:
+        logger.write_exception(e)
+
 
 
 
