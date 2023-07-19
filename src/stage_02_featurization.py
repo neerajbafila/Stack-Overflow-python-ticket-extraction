@@ -4,7 +4,6 @@ import numpy as np
 from tqdm import tqdm
 import logging
 from src.utils import read_config, create_directories, get_data_as_df, save_matrix
-import random
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from src.Logger.logger import logger
 from pathlib import Path

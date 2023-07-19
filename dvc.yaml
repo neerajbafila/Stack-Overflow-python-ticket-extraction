@@ -1,0 +1,20 @@
+# add stages here
+
+stages:
+  data_preparation:
+    cmd: python src/stage_01_data_prepare.py
+    deps:
+      - src/stage_01_data_prepare.py
+      - src/utils
+      - data/data.xml
+    outs:
+      - artifacts/prepared_data
+  
+  featurization:
+    cmd: python src/stage_02_featurization.py
+    deps:
+      - src/stage_02_featurization.py
+      - src/utils
+      - artifacts/prepared_data
+    outs:
+      - artifacts/featurized_data
