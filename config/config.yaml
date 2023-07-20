@@ -18,4 +18,13 @@ Artifact:
     Test_Tfidf_matrix: test_words_tfidf_matrix.pkl
     Model_dir: models
     model_name: randomForestClassifier
+
+Plots:
+    PRC:  prc.json
+    ROC:  roc.json
+
+Metrics:
+    scores: scores.json
+    path: metrics_scores
+
     

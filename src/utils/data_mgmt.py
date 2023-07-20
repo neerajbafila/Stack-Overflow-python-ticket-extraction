@@ -6,6 +6,7 @@ import pandas as pd
 import joblib
 from scipy import sparse
 import numpy as np
+import json
 
 def process_posts(main_data_file, train_data_file, test_data_file, split, column_names, target_tag, logger):
     column_names = column_names
@@ -48,6 +49,12 @@ def save_matrix(dataframe, matrix, output_path, logger):
         logger.write_log(msg)
     except Exception as e:
         logger.write_exception(e)
+
+def save_json(path:str, data:dict,logger):
+    with open(path, 'w') as f:
+        json.dump(data, f, indent=10)
+    logger.write_log(f"{data} has been saved at {path}")
+        
 
 
 

@@ -136,3 +136,4 @@ artifacts/prepared_data/*
 .vscode/settings.json
 .idea/
 artifacts/featurized_data/*
+metrics_scores/
