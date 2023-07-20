@@ -13,13 +13,13 @@ stages:
       size: 3174
     - path: src/utils
       hash: md5
-      md5: b386399141984bb32fc5c095360ba16e.dir
-      size: 6942
+      md5: 5afeedd8cbae52205ed93fcf2adf3382.dir
+      size: 6975
       nfiles: 6
     outs:
     - path: artifacts/prepared_data
       hash: md5
-      md5: 0a733495e7ad1bc2124837360b20cd94.dir
+      md5: bddfa1c1624c6d350d2e15d8c2d59ecf.dir
       size: 23886355
       nfiles: 2
   featurization:
@@ -27,21 +27,44 @@ stages:
     deps:
     - path: artifacts/prepared_data
       hash: md5
-      md5: 0a733495e7ad1bc2124837360b20cd94.dir
+      md5: bddfa1c1624c6d350d2e15d8c2d59ecf.dir
       size: 23886355
       nfiles: 2
     - path: src/stage_02_featurization.py
       hash: md5
-      md5: 45ea04c3dea28e72c63acaf3c25c9132
-      size: 5793
+      md5: e42a958cbfd06dced647d69a955ce1d5
+      size: 5794
     - path: src/utils
       hash: md5
-      md5: b386399141984bb32fc5c095360ba16e.dir
-      size: 6942
+      md5: 5afeedd8cbae52205ed93fcf2adf3382.dir
+      size: 6975
       nfiles: 6
     outs:
     - path: artifacts/featurized_data
       hash: md5
-      md5: d9a76fd9131f1de38e72fdb79ff91cf8.dir
-      size: 42330811
+      md5: f84e2c033cad28afba9cbbc12b4f0e6e.dir
+      size: 37947266
       nfiles: 4
+  Model_training:
+    cmd: python src/stage_03_training.py
+    deps:
+    - path: artifacts/featurized_data
+      hash: md5
+      md5: f84e2c033cad28afba9cbbc12b4f0e6e.dir
+      size: 37947266
+      nfiles: 4
+    - path: src/stage_03_training.py
+      hash: md5
+      md5: d6cd176df9917b331cbb991525aea9db
+      size: 3689
+    - path: src/utils
+      hash: md5
+      md5: 5afeedd8cbae52205ed93fcf2adf3382.dir
+      size: 6975
+      nfiles: 6
+    outs:
+    - path: artifacts/models
+      hash: md5
+      md5: aa71da49e3967a5e0569c7ecc92576f7.dir
+      size: 35468169
+      nfiles: 1

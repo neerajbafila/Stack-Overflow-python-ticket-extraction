@@ -42,7 +42,7 @@ def save_matrix(dataframe, matrix, output_path, logger):
         logger.write_log(f"Getting pid_matrix and label matrix from pandas Dataframe{dataframe.head()}")
         pid_matrix = sparse.csr_matrix(dataframe.pid.astype(np.int64)).T
         label_matrix = sparse.csr_matrix(dataframe.label.astype(np.int64)).T
-        result = sparse.hstack([pid_matrix, label_matrix, matrix])
+        result = sparse.hstack([pid_matrix, label_matrix, matrix], format='csr')
         msg = f"The output matrix saved at {output_path} of shape: {result.shape}"
         joblib.dump(result, output_path)
         logger.write_log(msg)

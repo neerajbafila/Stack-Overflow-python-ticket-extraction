@@ -18,3 +18,12 @@ stages:
       - artifacts/prepared_data
     outs:
       - artifacts/featurized_data
+  
+  Model_training:
+    cmd: python src/stage_03_training.py
+    deps:
+      - src/stage_03_training.py
+      - src/utils
+      - artifacts/featurized_data
+    outs:
+      - artifacts/models

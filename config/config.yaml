@@ -16,5 +16,6 @@ Artifact:
     Featurized_Test_Data: featurized_test.tsv
     Train_Tfidf_matrix: train_words_tfidf_matrix.pkl
     Test_Tfidf_matrix: test_words_tfidf_matrix.pkl
-
+    Model_dir: models
+    model_name: randomForestClassifier
     
