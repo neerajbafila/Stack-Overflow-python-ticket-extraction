@@ -35,8 +35,8 @@ stages:
       - src/utils
       - artifacts/models
     metrics:
-      - metrics_scores/scores.json
-          # cache: false
+      - metrics_scores/scores.json:
+          cache: false
     plots:
       - plot/prc.json:
           cache: false
