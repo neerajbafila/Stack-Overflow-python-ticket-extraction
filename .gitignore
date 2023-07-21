@@ -128,8 +128,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /env
-data/data.xml
-data/*
+# data/data.xml
+# data/*
 Log/
 research_env/
 artifacts/prepared_data/*
@@ -137,3 +137,7 @@ artifacts/prepared_data/*
 .idea/
 artifacts/featurized_data/*
 
+data/test.tsv
+data/train_tfidif_mat.bin
+data/train_tfidif_mat.pkl
+data/train.tsv
