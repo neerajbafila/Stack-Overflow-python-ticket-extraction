@@ -27,3 +27,26 @@ stages:
       - artifacts/featurized_data
     outs:
       - artifacts/models
+
+  Model_eval:
+    cmd: python src/stage_04_model_evalution.py
+    deps:
+      - src/stage_04_model_evalution.py
+      - src/utils
+      - artifacts/models
+    metrics:
+      - metrics_scores/scores.json
+          # cache: false
+    plots:
+      - plot/prc.json:
+          cache: false
+          x: precision
+          y: recall
+      - plot/roc.json:
+          cache: false
+          x: fpr
+          y: tpr
+
+    # outs:
+    #   - metrics_scores/
+    #   - plot/

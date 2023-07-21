@@ -20,6 +20,7 @@ Artifact:
     model_name: randomForestClassifier
 
 Plots:
+    plot_dir: plot
     PRC:  prc.json
     ROC:  roc.json
 

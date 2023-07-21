@@ -53,7 +53,7 @@ def save_matrix(dataframe, matrix, output_path, logger):
 def save_json(path:str, data:dict,logger):
     with open(path, 'w') as f:
         json.dump(data, f, indent=10)
-    logger.write_log(f"{data} has been saved at {path}")
+    logger.write_log(f"data has been saved at {path}")
         
 
 

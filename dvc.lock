@@ -13,13 +13,13 @@ stages:
       size: 3174
     - path: src/utils
       hash: md5
-      md5: 5afeedd8cbae52205ed93fcf2adf3382.dir
-      size: 6975
+      md5: 6e90b1628b9488de01aaf9e278997836.dir
+      size: 7475
       nfiles: 6
     outs:
     - path: artifacts/prepared_data
       hash: md5
-      md5: bddfa1c1624c6d350d2e15d8c2d59ecf.dir
+      md5: ae1c3824a2f63352ee6cae1c9b3ecc6b.dir
       size: 23886355
       nfiles: 2
   featurization:
@@ -27,7 +27,7 @@ stages:
     deps:
     - path: artifacts/prepared_data
       hash: md5
-      md5: bddfa1c1624c6d350d2e15d8c2d59ecf.dir
+      md5: ae1c3824a2f63352ee6cae1c9b3ecc6b.dir
       size: 23886355
       nfiles: 2
     - path: src/stage_02_featurization.py
@@ -36,22 +36,22 @@ stages:
       size: 5794
     - path: src/utils
       hash: md5
-      md5: 5afeedd8cbae52205ed93fcf2adf3382.dir
-      size: 6975
+      md5: 6e90b1628b9488de01aaf9e278997836.dir
+      size: 7475
       nfiles: 6
     outs:
     - path: artifacts/featurized_data
       hash: md5
-      md5: f84e2c033cad28afba9cbbc12b4f0e6e.dir
-      size: 37947266
+      md5: 28e384a2c05d1207db6eb30afa6fff64.dir
+      size: 37880603
       nfiles: 4
   Model_training:
     cmd: python src/stage_03_training.py
     deps:
     - path: artifacts/featurized_data
       hash: md5
-      md5: f84e2c033cad28afba9cbbc12b4f0e6e.dir
-      size: 37947266
+      md5: 28e384a2c05d1207db6eb30afa6fff64.dir
+      size: 37880603
       nfiles: 4
     - path: src/stage_03_training.py
       hash: md5
@@ -59,12 +59,42 @@ stages:
       size: 3689
     - path: src/utils
       hash: md5
-      md5: 5afeedd8cbae52205ed93fcf2adf3382.dir
-      size: 6975
+      md5: 6e90b1628b9488de01aaf9e278997836.dir
+      size: 7475
       nfiles: 6
     outs:
     - path: artifacts/models
       hash: md5
-      md5: aa71da49e3967a5e0569c7ecc92576f7.dir
-      size: 35468169
+      md5: 173767b3223c8b3d45d82ab2226a6a3a.dir
+      size: 34325929
       nfiles: 1
+  Model_eval:
+    cmd: python src/stage_04_model_evalution.py
+    deps:
+    - path: artifacts/models
+      hash: md5
+      md5: 173767b3223c8b3d45d82ab2226a6a3a.dir
+      size: 34325929
+      nfiles: 1
+    - path: src/stage_04_model_evalution.py
+      hash: md5
+      md5: 54fa3d2b4ec627cd04946c8817b8e5f1
+      size: 5987
+    - path: src/utils
+      hash: md5
+      md5: 6e90b1628b9488de01aaf9e278997836.dir
+      size: 7475
+      nfiles: 6
+    outs:
+    - path: metrics_scores/scores.json
+      hash: md5
+      md5: 831f34b4c1620b5e792dfef31f0bfa6f
+      size: 92
+    - path: plot/prc.json
+      hash: md5
+      md5: 6cbab99c458a3d3a498839bde931a284
+      size: 230375
+    - path: plot/roc.json
+      hash: md5
+      md5: 306697c04feb9d8974eebe6406c5cc4b
+      size: 89305
