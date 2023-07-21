@@ -13,13 +13,29 @@ stages:
       size: 3174
     - path: src/utils
       hash: md5
-      md5: 6e90b1628b9488de01aaf9e278997836.dir
+      md5: c6b120a7a62cbc149b770bf3c46dc01b.dir
       size: 7475
       nfiles: 6
+    params:
+      config/params.yaml:
+        Prepare:
+          split: 0.3
+          seed: 42
+          tag: <python>
+          column_names: "pid\tlabel\ttext\n"
+        Training:
+          seed: 42
+          n_est: 1000
+          n_jobs: -1
+          min_split: 16
+          verbose: 4
+        featurization:
+          max_features: 3000
+          ngram_range: 4
     outs:
     - path: artifacts/prepared_data
       hash: md5
-      md5: ae1c3824a2f63352ee6cae1c9b3ecc6b.dir
+      md5: a099f983612a279b723ac6af3f60987f.dir
       size: 23886355
       nfiles: 2
   featurization:
@@ -27,7 +43,7 @@ stages:
     deps:
     - path: artifacts/prepared_data
       hash: md5
-      md5: ae1c3824a2f63352ee6cae1c9b3ecc6b.dir
+      md5: a099f983612a279b723ac6af3f60987f.dir
       size: 23886355
       nfiles: 2
     - path: src/stage_02_featurization.py
@@ -36,22 +52,38 @@ stages:
       size: 5794
     - path: src/utils
       hash: md5
-      md5: 6e90b1628b9488de01aaf9e278997836.dir
+      md5: c6b120a7a62cbc149b770bf3c46dc01b.dir
       size: 7475
       nfiles: 6
+    params:
+      config/params.yaml:
+        Prepare:
+          split: 0.3
+          seed: 42
+          tag: <python>
+          column_names: "pid\tlabel\ttext\n"
+        Training:
+          seed: 42
+          n_est: 1000
+          n_jobs: -1
+          min_split: 16
+          verbose: 4
+        featurization:
+          max_features: 3000
+          ngram_range: 4
     outs:
     - path: artifacts/featurized_data
       hash: md5
-      md5: 28e384a2c05d1207db6eb30afa6fff64.dir
-      size: 37880603
+      md5: a63a14a8a38ba09aa822bdb581b72bec.dir
+      size: 37886430
       nfiles: 4
   Model_training:
     cmd: python src/stage_03_training.py
     deps:
     - path: artifacts/featurized_data
       hash: md5
-      md5: 28e384a2c05d1207db6eb30afa6fff64.dir
-      size: 37880603
+      md5: a63a14a8a38ba09aa822bdb581b72bec.dir
+      size: 37886430
       nfiles: 4
     - path: src/stage_03_training.py
       hash: md5
@@ -59,22 +91,38 @@ stages:
       size: 3689
     - path: src/utils
       hash: md5
-      md5: 6e90b1628b9488de01aaf9e278997836.dir
+      md5: c6b120a7a62cbc149b770bf3c46dc01b.dir
       size: 7475
       nfiles: 6
+    params:
+      config/params.yaml:
+        Prepare:
+          split: 0.3
+          seed: 42
+          tag: <python>
+          column_names: "pid\tlabel\ttext\n"
+        Training:
+          seed: 42
+          n_est: 1000
+          n_jobs: -1
+          min_split: 16
+          verbose: 4
+        featurization:
+          max_features: 3000
+          ngram_range: 4
     outs:
     - path: artifacts/models
       hash: md5
-      md5: 173767b3223c8b3d45d82ab2226a6a3a.dir
-      size: 34325929
+      md5: 8f6549c998b52c68bc015841a6638e0c.dir
+      size: 35118089
       nfiles: 1
   Model_eval:
     cmd: python src/stage_04_model_evalution.py
     deps:
     - path: artifacts/models
       hash: md5
-      md5: 173767b3223c8b3d45d82ab2226a6a3a.dir
-      size: 34325929
+      md5: 8f6549c998b52c68bc015841a6638e0c.dir
+      size: 35118089
       nfiles: 1
     - path: src/stage_04_model_evalution.py
       hash: md5
@@ -82,19 +130,35 @@ stages:
       size: 5987
     - path: src/utils
       hash: md5
-      md5: 6e90b1628b9488de01aaf9e278997836.dir
+      md5: c6b120a7a62cbc149b770bf3c46dc01b.dir
       size: 7475
       nfiles: 6
+    params:
+      config/params.yaml:
+        Prepare:
+          split: 0.3
+          seed: 42
+          tag: <python>
+          column_names: "pid\tlabel\ttext\n"
+        Training:
+          seed: 42
+          n_est: 1000
+          n_jobs: -1
+          min_split: 16
+          verbose: 4
+        featurization:
+          max_features: 3000
+          ngram_range: 4
     outs:
     - path: metrics_scores/scores.json
       hash: md5
-      md5: 831f34b4c1620b5e792dfef31f0bfa6f
-      size: 92
+      md5: 40859413f685bc755b229553c663abd5
+      size: 93
     - path: plot/prc.json
       hash: md5
-      md5: 6cbab99c458a3d3a498839bde931a284
-      size: 230375
+      md5: 0779f5d12ca80bb6f1872283376286cc
+      size: 206926
     - path: plot/roc.json
       hash: md5
-      md5: 306697c04feb9d8974eebe6406c5cc4b
-      size: 89305
+      md5: 0f9198ea17e28998297856b4f8b6d3b7
+      size: 83131
