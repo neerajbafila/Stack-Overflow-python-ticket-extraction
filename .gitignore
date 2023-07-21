@@ -141,3 +141,4 @@ data/test.tsv
 data/train_tfidif_mat.bin
 data/train_tfidif_mat.pkl
 data/train.tsv
+metrics_scores/scores.json
