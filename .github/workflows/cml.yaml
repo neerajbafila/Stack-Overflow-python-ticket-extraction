@@ -23,5 +23,5 @@ jobs:
           dvc repro -v
           echo "# REPORTS" >> report.md
           echo "## metrics" >> report.md
-          cat scores.json >> report.md
+          cat metrics_scores/scores.json >> report.md
           cml-send-comment report.md
